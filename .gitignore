@@ -4,7 +4,6 @@ figures/
 __pycache__/
 .ipynb_checkpoints/
 set_environment_variables_private.sh
-mnist_experiment_qualitative_attrs.ipynb
 mnist_experiment_qualitative_embs.ipynb
 annotatedMutations.txt
 genome_annotation.xlsx
