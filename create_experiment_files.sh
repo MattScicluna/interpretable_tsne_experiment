@@ -6,7 +6,7 @@ Note that we generate the 20 NewsGroups datasets, but we have not included resul
 #!/bin/bash
 
 # Paths
-source ./set_environment_variables_public.sh
+#source ./set_environment_variables_public.sh
 
 # Activate virtual env
 module load python/3.8 # if you are running this on compute canada
@@ -22,7 +22,8 @@ echo 'finished'
 
 # Download GoogleNews-vectors-negative300.bin from the Google drive linked in the README, and place in $MODEL_DIR!
 echo 'creating 20 ng dataset ...'
-python src/set_up_20ng_word2vec.py --id 0 --size 12000 --data_dir $DATA_DIR_20NG --num_pca 0 --model_dir $W2V_DIR  # note we dont use PCA since Word2Vec already reduces dimension to 300!
+
+python src/set_up_20ng_word2vec.py --id 0 --size 12000 --data_dir $DATA_DIR_20NG --num_pca 50 --model_dir $W2V_DIR  # note we dont use PCA since Word2Vec already reduces dimension to 300!
 echo 'finished'
 
 # need to copy over the .mat and metadata files
