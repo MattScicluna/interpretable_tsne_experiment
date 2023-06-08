@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import check_random_state
 
 
-def gen_sim_data_2_clusters(seed, effect_size=4, size=2000):
+def gen_sim_data_2_clusters(seed, effect_size=4, size=2000, num_extra_feats=9):
     
     assert size % 2 == 0
     
@@ -28,7 +28,7 @@ def gen_sim_data_2_clusters(seed, effect_size=4, size=2000):
     import numpy as np
     np.random.seed(seed)
 
-    data = np.random.randn(size, 10)
+    data = np.random.randn(size, 1+num_extra_feats)
     label_index = np.random.choice(data.shape[0], size=size//2, replace=False)
     data[label_index, :1] += effect_size  # big difference between both classes!
     classes = np.zeros(shape=(data.shape[0]))
@@ -36,7 +36,7 @@ def gen_sim_data_2_clusters(seed, effect_size=4, size=2000):
     return data, classes
 
 
-def gen_sim_data_4_clusters(seed, effect_size_main=4, effect_size_subgroups=3, size=2000):
+def gen_sim_data_4_clusters(seed, effect_size_main=4, effect_size_subgroups=3, size=2000, num_extra_feats=7):
     
     assert size % 4 == 0
     
@@ -51,7 +51,7 @@ def gen_sim_data_4_clusters(seed, effect_size_main=4, effect_size_subgroups=3, s
     import numpy as np
     np.random.seed(seed)
 
-    data = np.random.randn(size, 10)
+    data = np.random.randn(size, 3+num_extra_feats)
     #data = np.zeros(shape=(2000, 10))
     label_index = np.random.choice(data.shape[0], size=size//2, replace=False)
     label_index_opposite = np.setdiff1d(np.arange(size), label_index)

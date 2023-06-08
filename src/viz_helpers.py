@@ -12,7 +12,6 @@ import seaborn as sns
 from gensim import models
 
 
-
 ### 20 NG helper functions
 
 def remove_min_max_attrs(attr, min_percentile_remove, max_percentile_remove):
